@@ -1,0 +1,13 @@
+
+.main1{
+ 
+min-height: 100vh;
+  width: 100% !important;
+   background-color: #2b2e4a;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+ 
+}
+

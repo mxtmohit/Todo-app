@@ -1,0 +1,66 @@
+.newTask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+    width: 600px;
+    min-height: fit-content;
+    color: aliceblue;
+    background-color: #ffe2e2;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.newTaskContainer{
+display: flex;
+flex-direction: row;
+margin-bottom: 20px;
+align-items: center;
+ background-color: #903749;
+border-radius: 20px;
+width: 800px;
+box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.6);
+
+
+
+
+}
+.addBtn{
+    height: 100px;
+    width: 140px;
+    border-radius: 10px;
+    background-color: #ffe2e2;
+    color: #53354A;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+
+}
+
+.addBtn:hover {
+    /* width: 100%; */
+    box-shadow: 2px 2px 5px 2px rgba(2, 2, 2, 0.4);
+                transition: ease all 1;
+    
+    
+}
+.addBtn:active{
+    background-color: #ffc7c7;
+    box-shadow: 1px 1px 3px 0.2px rgba(0, 0, 0, 0.4);
+    color: black;
+
+
+
+}
+@media only screen and  (max-width: 768px){
+    
+    .newTaskContainer{width:100%}
+}
+
+    

@@ -1,0 +1,59 @@
+.checkmark {
+  position: absolute;
+  left: -50px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+}
+.title {
+  font-size: 2rem;
+}
+.desc {
+  font-size: 1.2rem;
+}
+.taskdetails {
+  margin: 5px;
+  overflow-wrap: break-word;
+  width: 80%;
+}
+.container {
+  height: fit-content;
+  width: 600px;
+  background-color: #903749;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  overflow-wrap: break-word;
+  max-height: 100%; 
+}
+
+.editdeleteIcon{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checked {
+  border-color: greenyellow;
+  /* margin :3px; */
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 80vw;
+    margin-left: 50px;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .desc {
+    font-size: 0.8rem;
+  }
+}

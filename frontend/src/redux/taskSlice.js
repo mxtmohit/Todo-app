@@ -43,6 +43,7 @@ const deletetask = (state, { payload }) => {
 
 const updateDb = (state, { payload }) => {
   state.server = payload;
+  state.task=[]
   initializeStateFromLocalStorage(state);
 };
 

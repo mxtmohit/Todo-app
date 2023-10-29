@@ -10,6 +10,7 @@ import Snackbarcomp from "./sharedComp/Snackbar";
 import { addAction } from "../../redux/taskSlice";
 
 let msgtype = "success";
+let Id=0
 
 const Addtask = () => {
   const [title, setTitle] = useState("");
@@ -18,10 +19,14 @@ const Addtask = () => {
   const [snackbarMsg, setSnackbarMsg] = useState("");
 
   const dispatch = useDispatch();
+  const serverstate=useSelector((s)=>s.taskSlice.server)
+  console.log(serverstate)
 
+  const arrayw=useSelector((s)=>s.taskSlice.taskstate)
+ 
 
-
-
+  if(arrayw.length)
+    Id=arrayw[(arrayw.length)-1]?._id+10
   
 
   const HandleAddTask = async () => {
@@ -32,7 +37,7 @@ const Addtask = () => {
      
       return;
     }
-    try {
+    try {if(serverstate){
       const res = await axios.post("http://localhost:5000/addtask", {
         task: { title, description },
       });
@@ -42,8 +47,13 @@ const Addtask = () => {
         msgtype = "success";
         setSnackbarMsg(res.data.message);
         setsnackbarOpen(true);
-        
       }
+      }else{  dispatch(
+        addAction({ title, description, status: false, _id: ++Id})
+      );
+      msgtype = "success";
+      setSnackbarMsg("saved in local");
+      setsnackbarOpen(true);}
     } catch (e) {
       msgtype = "error";
       setSnackbarMsg(e.message);

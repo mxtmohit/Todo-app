@@ -53,6 +53,7 @@ const TaskList = () => {
 
 
   const handleUpdateList = (option) => {
+    console.log(taskstatearray)
     let updatedtasklist = [];
 
     updatedtasklist = taskstatearray.filter((task) => {
@@ -60,7 +61,7 @@ const TaskList = () => {
       return task.status == option;
     });
 
-    if (option != 3) setTasklist(() => updatedtasklist);
+    if (option != 3) setTasklist(() => updatedtasklist.reverse());
     else setTasklist(() => taskstatearray);
   };
 
@@ -80,9 +81,15 @@ const TaskList = () => {
             handleUpdateList(e.target.value);
           }}
         >
-          <MenuItem value={3}>All</MenuItem>
-          <MenuItem value={1}>Completed</MenuItem>
-          <MenuItem value={0}>Pending</MenuItem>
+          <MenuItem sx={{ width: "100%" }} value={3}>
+            All
+          </MenuItem>
+          <MenuItem sx={{ width: "100%" }} value={1}>
+            Completed
+          </MenuItem>
+          <MenuItem sx={{ width: "100%" }} value={0}>
+            Pending
+          </MenuItem>
         </Select>
       </div>
       <div className="arraycont">

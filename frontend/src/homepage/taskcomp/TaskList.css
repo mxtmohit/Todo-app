@@ -26,6 +26,7 @@
     gap: 20px;
     box-shadow: 0px 0px 4px 3px rgb(32, 32, 32) inset;
     margin-bottom: 20px;
+    box-sizing: border-box;
 
 }
 
@@ -45,6 +46,7 @@ width: fit-content;}
     width: 80vw;
     margin-left: 50px;
   }
+  .arraycont{min-width: 70vw; box-shadow: 0px 0px 1px 2px rgb(32, 32, 32) inset;padding: 2px;}
     
 
 }

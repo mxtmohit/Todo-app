@@ -6,7 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DoneIcon from "@mui/icons-material/Done";
 import axios from "axios";
 import Snackbarcomp from "./sharedComp/Snackbar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteAction, updateAction } from "../../redux/taskSlice";
 
 const TaskDetails = ({ taskdata}) => {
@@ -18,6 +18,7 @@ const TaskDetails = ({ taskdata}) => {
   const [updatedDescription, setUpdatedDescription] = useState(description);
 
   const dispatch = useDispatch();
+  const serverstate=useSelector(s=>s.taskSlice.server)
 
   const handleTaskStatusUpdate = () => {
     setUpdatedStatus(!updatedStatus);
@@ -32,6 +33,7 @@ const TaskDetails = ({ taskdata}) => {
   };
 
   const HandleTaskStatus = async (e) => {
+    if(serverstate){
     await axios
       .put("http://localhost:5000/update", {
         _id,
@@ -45,7 +47,8 @@ const TaskDetails = ({ taskdata}) => {
           console.log(res);
         }
       })
-      .catch((e) => console.log(e, "cant"));
+      .catch((e) => console.log(e, "cant"));}
+      else handleTaskStatusUpdate();
   };
 
   const HandleSetEditState = () => {
@@ -57,9 +60,10 @@ const TaskDetails = ({ taskdata}) => {
   };
 
   const HandleDelete = async () => {
-    try {
+    try {if(serverstate){
       const res = await axios.delete(`http://localhost:5000/deletetask/${_id}`);
       if (res.status == 200) dispatch(deleteAction(_id));
+    }else dispatch(deleteAction(_id));
     } catch (error) {
       console.log(error.message);
     }

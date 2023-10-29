@@ -10,7 +10,7 @@ A MERN stack todo application.
 2. Backend setup:
    - Go to the `backend` directory: `cd .\backend`
    - Install dependencies: `npm install`
-   - in .env file replace "username" and "password" with your credentials `
+   - in .env file replace "****" with you mongodb connection URI
    - Start the server: `npm run dev`
 
 3. Frontend setup:
